@@ -52,7 +52,7 @@ export class FormpageComponent implements OnInit {
         ValidatePassword
       ],
       ],
-      // pattern(/^(?=.*?[A-Z])(?=.*?[a-z]).{8,}$/)],
+
       email: ['', {
         validators: [
           Validators.required,
@@ -63,8 +63,8 @@ export class FormpageComponent implements OnInit {
       }],
       phoneNumber: ['', [
         Validators.required,
-        Validators.minLength(11),
-        Validators.maxLength(13),
+        Validators.pattern(/[0-9]{11,14}/),
+        Validators.maxLength(14),
       ]],
       selectCountry: ['', Validators.required],
       selectOccupation: ['', Validators.required],
@@ -87,7 +87,6 @@ export class FormpageComponent implements OnInit {
       this.toastTitle = 'Notification';
       this.message = 'Form successfully submitted!';
       this.showToast = true;
-      // this.time = 5000;
       setTimeout(() => {
         this.router.navigate(['success']);
       }, 5000);
@@ -97,10 +96,10 @@ export class FormpageComponent implements OnInit {
       this.toastTitle = 'Error';
       this.message = 'Form unsuccessful !';
       this.showToast = true;
-      // this.time = 5000;
-      // setTimeout(() => {
-      //   this.router.navigate(['']);
-      // }, 5000);
+      this.time = 5000;
+      setTimeout(() => {
+        this.router.navigate(['']);
+      }, 5000);
     }
     this.dataForm.reset();
   }
