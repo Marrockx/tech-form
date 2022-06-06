@@ -89,7 +89,8 @@ export class FormpageComponent implements OnInit {
       this.showToast = true;
       setTimeout(() => {
         this.router.navigate(['success']);
-      }, 5000);
+        this.dataForm.reset();
+      }, 2000);
     }
     if (this.dataForm.get('successful')?.value == 'false' && this.dataForm.untouched != true) {
       this.toastType = 'error';
@@ -99,9 +100,9 @@ export class FormpageComponent implements OnInit {
       this.time = 5000;
       setTimeout(() => {
         this.router.navigate(['']);
+        this.dataForm.reset();
       }, 5000);
     }
-    this.dataForm.reset();
   }
 }
 
