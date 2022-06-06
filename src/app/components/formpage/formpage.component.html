@@ -1,0 +1,120 @@
+<div class="ui container wrap">
+
+    <fui-toast [class]="toastType" *ngIf="showToast" [showProgress]="progressPosition" [displayTime]="time"
+        [closeIcon]="true">
+        <ng-template fuiToastTitle="">{{toastTitle}}</ng-template>
+        <ng-template fuiToastMessage>{{message}}</ng-template>
+    </fui-toast>
+
+    <div class="ui container segment">
+        <h1 class="header big">Bio Data Form</h1>
+
+        <form class="ui form" [formGroup]="dataForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="two wide doubling grid fields">
+                <div class="input-field name field">
+                    <label class="fieldLabel" for="first-name">First Name</label>
+                    <span class="text-error-indicator">*</span>
+                    <input type="text" id="first-name" formControlName="firstName" placeholder="Enter First Name"
+                        [ngModel] />
+                    <span class="text-error"
+                        *ngIf="dataForm.controls['firstName']?.touched && dataForm.controls['firstName']?.invalid">First
+                        Name is required</span>
+                </div>
+
+                <div class="input-field name field">
+                    <label class="fieldLabel">Last Name</label>
+                    <span class="text-error-indicator">*</span>
+                    <input type="text" id="last-name" formControlName="lastName" placeholder="Enter Last Name" />
+                    <span class="text-error"
+                        *ngIf="dataForm.controls['lastName']?.touched && dataForm.controls['lastName']?.invalid">Last
+                        Name is required</span>
+                </div>
+            </div>
+
+            <div class="input-field field">
+                <label class="fieldLabel" for="pwd">Password</label>
+                <span class="text-error-indicator">*</span>
+                <span class="text-error"
+                    *ngIf="dataForm.controls['password']?.touched && dataForm.controls['password']?.invalid">Password
+                    must contain at least 1 uppercase later and 1 lowercase letter and a minimum of 8 characters</span>
+                <input type="password" id="pwd" formControlName="password" placeholder="Enter New Password" />
+
+            </div>
+            <div class="input-field field">
+                <label class="fieldLabel" for="email-addr">Email Address</label>
+                <span class="text-error-indicator">*</span>
+                <span class="text-error"
+                    *ngIf="dataForm.controls['email']?.touched && dataForm.controls['email']?.invalid">Email must match
+                    format e.g, abcd@example.com</span>
+                <input type="email" id="email-addr" formControlName="email" autocomplete="username email"
+                    placeholder="Enter Email Address" />
+            </div>
+
+            <div class="input-field field">
+                <label class="fieldLabel" for="phone-number">Phone Number</label>
+                <span class="text-error-indicator">*</span>
+                <span class="text-error"
+                    *ngIf="dataForm.controls['phoneNumber']?.touched && dataForm.controls['phoneNumber']?.invalid">Enter
+                    Number
+                    between 11 and 14 digits e.g., 081xxxxxxxx(xxxx)</span>
+                <input type="number" id="phone-number" formControlName="phoneNumber" placeholder="Enter Phone Number" />
+            </div>
+
+            <div class="field">
+                <label class="fieldLabel" for="selectCtry">Country</label>
+                <span class="text-error-indicator">*</span>
+                <span class="text-error"
+                    *ngIf="dataForm.controls['selectCountry']?.touched && dataForm.controls['selectCountry']?.invalid">Country
+                    must be
+                    selected </span>
+                <fui-select class="selection" formControlName="selectCountry" [(ngModel)]="selectedCountry"
+                    placeholder="Select Country" [options]="countries" [isSearchable]="searchable"
+                    [isDisabled]="disabled" id="selectCtry">
+                    <fui-select-option class="dropdown-select" *ngFor="let country of countries"
+                        [value]="country?.name">
+                    </fui-select-option>
+                </fui-select>
+            </div>
+
+            <div class="field">
+                <label class="fieldLabel" for="selectOccup">Occupation</label>
+                <span class="text-error-indicator">*</span>
+                <span class="text-error"
+                    *ngIf="dataForm.controls['selectOccupation']?.touched && dataForm.controls['selectOccupation']?.invalid">
+                    Occupation must be
+                    selected </span>
+                <fui-select class="selection" formControlName="selectOccupation" [(ngModel)]="selectedOccupation"
+                    placeholder="Select Occupation" [options]="occupations" labelField="" [isSearchable]="searchable"
+                    [isDisabled]="disabled" id="selectOccup">
+                    <fui-select-option class="dropdown-select" id=" selectOccupation"
+                        *ngFor="let occupation of occupations" [value]="occupation">
+                    </fui-select-option>
+                </fui-select>
+            </div>
+
+            <div class="two grouped fields">
+                <label class="fieldLabel">Successful</label>
+                <span class="text-error-indicator">*</span>
+                <!-- <span class="text-error" *ngIf="dataForm.controls['successful']?.invalid">Select a choice</span> -->
+                <div class=" radio-group">
+                    <div class="inline field radio-wrap">
+                        <fui-radio-button class="radio-btn" name="eRadio" formControlName="successful" value="true">True
+                        </fui-radio-button>
+                    </div>
+
+                    <div class="inline field radio-wrap">
+                        <fui-radio-button class="radio-btn" name="eRadio" formControlName="successful" value="false">
+                            False
+                        </fui-radio-button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="ui submit button" [disabled]="!dataForm.valid" type="submit">
+                Submit Form
+            </button>
+
+        </form>
+
+
+    </div>

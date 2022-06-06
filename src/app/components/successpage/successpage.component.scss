@@ -1,0 +1,54 @@
+.submission-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.submission-page-wrap {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.submission-page-card {
+    width: 75%;
+    max-width: 600px;
+    padding: 2rem;
+    background-color: rgb(251, 235, 239);
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submission-page-card--content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.submission-page-card--content .header {
+    font-size: 2.8rem;
+    color: #302f2f;
+}
+
+.check.outline.icon {
+    margin: 2rem auto;
+    color: crimson;
+}
+
+.ui.submit.button {
+    margin-top: 2rem;
+    background-color: crimson;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color ease-in-out 1s;
+}
+
+.ui.submit.button:hover {
+    background-color: rgb(97, 7,
+            25);
+}

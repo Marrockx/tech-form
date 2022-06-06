@@ -1,0 +1,89 @@
+fui-toast {
+    align-self: flex-end;
+}
+
+.container.wrap {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container.segment {
+    width: 75%;
+    max-width: 600px;
+    padding: 3.2rem;
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: none;
+}
+
+.header.big {
+    margin: 2rem auto;
+}
+
+
+input::placeholder {
+    color: #b6b4b4 !important;
+
+}
+
+input {
+    font-family: Avenir !important;
+}
+
+.text-error {
+    display: block;
+}
+
+.text-error,
+.text-error-indicator {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #ff0000;
+}
+
+.text-error-indicator {
+    margin-left: 4px;
+}
+
+.fieldLabel {
+    font-size: 1.1rem !important;
+    display: inline-block !important;
+}
+
+// input:focus {
+//     border: 1.2px solid rgb(248, 215, 222) !important;
+// }
+
+input.ng-touched.ng-invalid,
+.selection.ng-touched.ng-invalid {
+    border: 1.2px solid red;
+}
+
+.radio-wrap.field:first-child {
+    padding-right: 2rem !important;
+}
+
+.radio-btn,
+.radio-btn:hover {
+    cursor: pointer;
+}
+
+.two.grouped.fields .radio-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: fit-content;
+    justify-content: space-between;
+}
+
+.error-msg.pointing.label {
+    background-color: rgb(248, 215, 222);
+}
+
+.ui.submit.button:enabled {
+    background-color: crimson;
+    color: #ffffff;
+}
